@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(cubic C)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
 
 include_directories(src)
