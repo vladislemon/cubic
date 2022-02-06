@@ -34,14 +34,14 @@ void window_makeContextCurrent(window_t *this) {
 }
 
 window_t window_new(int width, int height, const char *title) {
-    window_t result = {};
-    result.handle = glfwCreateWindow(width, height, title, 0, 0);
-    result.getWidth = window_getWidth;
-    result.getHeight = window_getHeight;
-    result.getTitle = window_getTitle;
-    result.setTitle = window_setTitle;
-    result.shouldClose = window_shouldClose;
-    result.swapBuffers = window_swapBuffers;
-    result.makeContextCurrent = window_makeContextCurrent;
-    return result;
+    window_t window = {};
+    window.handle = glfwCreateWindow(width, height, title, 0, 0);
+    window.getWidth = window_getWidth;
+    window.getHeight = window_getHeight;
+    window.getTitle = window_getTitle;
+    window.setTitle = window_setTitle;
+    window.shouldClose = window_shouldClose;
+    window.swapBuffers = window_swapBuffers;
+    window.makeContextCurrent = window_makeContextCurrent;
+    return window;
 }
