@@ -34,6 +34,9 @@ void window_makeContextCurrent(window_t *this) {
 }
 
 window_t window_new(int width, int height, const char *title) {
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
     window_t window = {};
     window.handle = glfwCreateWindow(width, height, title, 0, 0);
     window.getWidth = window_getWidth;
