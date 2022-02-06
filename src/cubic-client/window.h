@@ -15,7 +15,13 @@ struct window_s {
     const char *title;
     GLFWwindow *handle;
 
+    int (*getWidth)(window_t *window);
+    int (*getHeight)(window_t *window);
+    const char *(*getTitle)(window_t *window);
     void (*setTitle)(window_t *window, const char *title);
+    int (*shouldClose)(window_t *window);
+    void (*swapBuffers)(window_t *window);
+    void (*makeContextCurrent)(window_t *window);
 };
 
 window_t window_new(int width, int height, const char *title);
