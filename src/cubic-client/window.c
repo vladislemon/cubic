@@ -38,6 +38,9 @@ window_t window_new(int width, int height, const char *title) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
     window_t window = {};
+    window.width = width;
+    window.height = height;
+    window.title = title;
     window.handle = glfwCreateWindow(width, height, title, 0, 0);
     window.getWidth = window_getWidth;
     window.getHeight = window_getHeight;

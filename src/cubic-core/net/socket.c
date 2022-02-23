@@ -17,6 +17,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <errno.h>
 #endif
 
 #ifdef _WIN32
@@ -64,7 +65,11 @@ int socket_send(socket_t sock, const char *buffer, int length, int flags) {
 int socket_receive(socket_t sock, char *buffer, int length, int flags, int *errorOut) {
     int result = recv(sock, buffer, length, flags);
     if (result == -1) {
+#ifdef _WIN32
         errorOut[0] = WSAGetLastError();
+#else
+        errorOut[0] = errno;
+#endif
     }
     return result;
 }
